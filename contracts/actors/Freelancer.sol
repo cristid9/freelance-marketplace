@@ -2,12 +2,13 @@
 
 pragma solidity >=0.8.0 <=0.8.7;
 
-contract Freelancer {
+import "./Actor.sol";
+
+contract Freelancer is Actor {
 
     string public name;
     uint8 public reputation;
     string public domainOfExpertise; 
-    string public role;
 
     constructor(string memory _name, uint8 _reputation, string memory _domainOfExpertise) public {
         name = _name;

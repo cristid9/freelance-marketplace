@@ -6,17 +6,11 @@ contract Eval {
 
     string public name;
     string public domainOfExpertise;
+    string public role;
 
     constructor(string memory _name, string memory _domainOfExpertise) {
         name = _name;
         domainOfExpertise = _domainOfExpertise;
-    }
-
-    function getName() public view returns(string memory) {
-        return name;
-    }
-
-    function getDomainOfExpertise() public view returns(string memory) {
-        return domainOfExpertise;
+        role = "Eval";
     }
 }

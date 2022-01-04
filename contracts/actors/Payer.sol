@@ -2,13 +2,12 @@
 
 pragma solidity >=0.8.0 <=0.8.7;
 
-import "./Actor.sol";
+contract Payer {
 
-contract Payer is Actor {
-
+    string public role;
     string public name;
 
-    constructor(string memory _name) public  {
+    constructor(string memory _name) {
         name = _name;
         role = "Payer";
     } 

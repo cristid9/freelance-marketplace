@@ -1,7 +1,7 @@
-const Token = artifacts.require("Freelancer");
-const Main = artifacts.require("Freelancer");
+const Token = artifacts.require("Token");
+const Main = artifacts.require("Main");
 
 module.exports = function(deployer) {
-  deployer.deploy(Token);
+  deployer.deploy(Token, "MetaPoint", "MTPNT", 10000);
   deployer.deploy(Main);
 };

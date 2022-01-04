@@ -76,8 +76,8 @@ contract Main is Utils {
     }
 
 
-    function getRoleOf(address addr) public view returns(string memory) {
-        return roles[addr];
+    function getRoleOf() public view returns(string memory) {
+        return roles[msg.sender];
     }
 
     // %todo% retthink this

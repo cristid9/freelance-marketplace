@@ -1,5 +1,6 @@
 import Web3 from "web3";
 import metaCoinArtifact from "../../build/contracts/MetaCoin.json";
+import freelancerArtifact from "../../build/contracts/Freelancer.json"
 
 const App = {
   web3: null,
@@ -25,6 +26,26 @@ const App = {
       this.refreshBalance();
     } catch (error) {
       console.error("Could not connect to contract or chain.");
+    }
+
+    try {
+      // debugger;
+      const networkId = await web3.eth.net.getId();
+      const deployedNetwork = freelancerArtifact.networks[networkId];
+      this.freelancer = new web3.eth.Contract(
+        freelancerArtifact.abi,
+        deployedNetwork.address,
+      );
+
+      
+      // freelanceBalance = await this.freelancer.getBalance().call();
+
+      // console.log("Freelancer balance is ", freelanceBalance);
+
+      console.log(this.freelancer);
+
+    } catch (error) {
+      console.error("Could not connect to contract or chain. -- Freelancer");
     }
   },
 

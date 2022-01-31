@@ -50,6 +50,7 @@ const App = {
                 );
             }, 3000);
 
+
             console.log("[Main contract] connect success");
         } catch(error) {
             console.log("Could not connect with main contract on chain [Main]! ");
@@ -59,6 +60,7 @@ const App = {
     createTask: async function(name, description, domainOfExpertise, evalFee, freelancerFee) {
         var acc = await window.App.web3.eth.getAccounts();
         this.main.methods.createTask().call({from: acc[0]});
+
     }
 
 };
@@ -72,6 +74,7 @@ $("#create-task").on('click', async function() {
     var acc = await window.App.web3.eth.getAccounts();
 
     var userRole = await window.App.main.methods.getRoleOf().call({from: acc[0]});
+
     console.log(userRole);
 
     if (userRole == "manager") {
@@ -134,6 +137,7 @@ window.addEventListener("load", function() {
         App.web3 = new Web3(window.ethereum);
         window.ethereum.enable(); // get permission to access accounts
         console.log('Ethereum branch 1');
+
     } else {
         console.warn("No web3 detected. Falling back to http://127.0.0.1:8545. You should remove this fallback when you deploy live",);
         // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
@@ -172,3 +176,4 @@ function makeCell(name, domainOfExpertise, description, evalFee, freelancerFee) 
                 '<button class="solve btn btn-primary"> Apply </button>' +
         "</div>";
 }
+
